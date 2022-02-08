@@ -1,0 +1,48 @@
+{%extends 'main/base.html'%}
+
+{% block content %}
+{{block.super}}
+
+<div class="container-fluid">
+    <div id="home" class="col-md-12  top  text-center">
+      <h1>Hi, my name is Alphonce Kipngeno</h1>
+      <p>A software web developer.</p>
+    </div>
+</div>
+
+<div class="container text-center">
+  <section id="about" class="wrapper style2 spotlights">
+      <div class="content">
+        <div class="inner">
+        <img src="/static/images/ali.jpg" alt="" data-position="top Right" style="margin-right:0px; width: 350px; height: 280px; float:right;"/>
+          <h2> About Me </h2>&nbsp &nbsp  &nbsp &nbsp
+           <p>Am a self motivated software developer.Am  always pushing myself to grow by setting firm goals for myself.  Then, once I've defined the benchmarks, I take the necessary steps to achieve those milestones.</p>
+                            <p>
+            Am someone who demonstrates an unwavering resolve to do whatever must be done to produce the best short-term and </br> long-term results, no matter how difficult because am very <br> passionate about what i do. </p></br></br>
+
+        </div>
+      </div>
+  </section>
+</div>
+<div class="contaner text-center">
+  <h1>Portfolio</h1>
+  <div class="row">
+    {% for project in projects %}
+    
+    <div class="col-md-4">
+          
+      <div class="card mb-4">
+          <h4 class="text-center"><strong>Title:</strong>{{project.name}}</h4>
+          <img src="{{ project.screenshot.url }}" class="img-responsive" alt="Image">
+          <p><strong>Description: </strong>{{project.description}}</p>
+          <button><a href="{{project.live_link}}">Project Link</a></button>
+          <small class="text-muted">{{project.pub_date}}</small>
+
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+    
+</div>
+{%endblock%}
